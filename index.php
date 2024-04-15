@@ -47,6 +47,10 @@ $hotels = [
 
     ];
 
+    function parkingCheck($parking){
+        return $parking ? "This hotel have Parking inside" : "This hotel haven't Parking";
+    };
+       
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +62,17 @@ $hotels = [
 </head>
 <body>
 
+    <?php
+    foreach($hotels as $hotel){
+        echo "<h1> $hotel[name] </h1>";
+        echo "<p> $hotel[description] </p>";
+        echo "<div class=parking> <span>".
+        parkingCheck($hotel["parking"]) . "</span> </div>";
+        echo  "<div> Vote: $hotel[vote]  /5 </div>";
+        echo  "<div> Distance from center: $hotel[distance_to_center] km </div>";
+
+    }
+    ?>
 
 </body>
 </html>
